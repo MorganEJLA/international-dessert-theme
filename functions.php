@@ -8,3 +8,8 @@ function desserts_files(){
     wp_enqueue_style('desserts_extra_styles',get_theme_file_uri('/build/index.css'));
 }
 add_action('wp_enqueue_scripts', 'desserts_files');
+
+function desserts_features(){
+    add_theme_support('title-tag');
+}
+add_action('after_setup_theme', 'desserts_features');
