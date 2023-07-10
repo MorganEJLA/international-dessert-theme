@@ -21,7 +21,7 @@ get_header(); ?>
         <?php the_title(); ?></a></h2>
         <div class = "metabox">
           <p>Posted by <?php
-          the_author_posts_link(); ?> on <?php the_time('d.F.y'); ?> in <?php echo
+          the_author_posts_link(); ?> on <?php the_time('d. F. y'); ?> in <?php echo
           get_the_category_list(', ');
           ?></p>
         </div>
