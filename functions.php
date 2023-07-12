@@ -17,3 +17,12 @@ function desserts_features(){
     add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'desserts_features');
+
+
+function special_nav_class ($classes, $item) {
+    if (in_array('current-menu-item', $classes) ){
+        $classes[] = 'active ';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
