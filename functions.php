@@ -19,10 +19,13 @@ function desserts_features(){
 add_action('after_setup_theme', 'desserts_features');
 
 
+
 function atg_menu_classes($classes, $item, $args) {
     if($args->theme_location == 'headerMenuLocation') {
       if(get_post_type()=='post' && $item->title=='Blog')
         $classes[] = 'current-menu-item';
+      if(get_post_type()=='country' && $item->title=='All Featured Countries')
+      $classes[] = 'current-menu-item';
       
     }
     return $classes;
