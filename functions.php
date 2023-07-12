@@ -19,10 +19,13 @@ function desserts_features(){
 add_action('after_setup_theme', 'desserts_features');
 
 
-function special_nav_class ($classes, $item) {
-    if (in_array('current-menu-item', $classes) ){
-        $classes[] = 'active ';
+function atg_menu_classes($classes, $item, $args) {
+    if($args->theme_location == 'headerMenuLocation') {
+      if(get_post_type()=='post' && $item->title=='Blog')
+        $classes[] = 'current-menu-item';
+      
     }
     return $classes;
-}
-add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+  }
+ 
+add_filter('nav_menu_css_class', 'atg_menu_classes', 1, 3);
