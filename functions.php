@@ -24,7 +24,7 @@ function atg_menu_classes($classes, $item, $args) {
     if($args->theme_location == 'headerMenuLocation') {
       if(get_post_type()=='post' && $item->title=='Blog')
         $classes[] = 'current-menu-item';
-      if(get_post_type()=='country' && $item->title=='All Featured Countries')
+      if(get_post_type()=='country' && $item->title=='All Countries')
       $classes[] = 'current-menu-item';
       
     }
@@ -32,3 +32,4 @@ function atg_menu_classes($classes, $item, $args) {
   }
  
 add_filter('nav_menu_css_class', 'atg_menu_classes', 1, 3);
+

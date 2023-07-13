@@ -18,10 +18,18 @@ get_header(); ?>
     while (have_posts()) {
         the_post(); ?>
         <div class="event-summary">
-            <a class="event-summary__date t-center" href="#">
-                <span class="event-summary__month">Mar</span>
-                <span class="event-summary__day">25</span>
-            </a>
+                    <a class="country-featured" href="#">
+                        <?php
+                        // don't forget to replace 'image' with your field name
+                            $imageID = get_field('country_featured');
+                            // can be one of the built-in sizes ('thumbnail', 'medium', 'large', 'full' or a custom size)
+                            $size = 'thumbnail';
+
+                            if ($imageID) {
+                                // creates the img tag
+                                echo wp_get_attachment_image($imageID, $size);
+                            }
+                        ?>
             <div class="event-summary__content">
                 <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
                 <p>
