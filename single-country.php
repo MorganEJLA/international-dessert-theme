@@ -6,13 +6,14 @@ while (have_posts()) {
     the_post(); ?>
     <div class="page-banner">
         <div class="page-banner__bg-image"
-            style="background-image: url(<?php echo get_theme_file_uri('/images/bahia-street.jpg') ?>);"></div>
+            style="background-image: url(<?php $pageBannerImage = get_field('page_banner_background_image');echo $pageBannerImage['sizes']['pageBanner'] ?>);"></div>
         <div class="page-banner__content container container--narrow">
+            
             <h1 class="page-banner__title">
                 <?php the_title(); ?>
             </h1>
             <div class="page-banner__intro">
-                <p>Dont forget to replace later</p>
+                <p><?php the_field('page_banner_subtitle') ?></p>
             </div>
         </div>
     </div>
@@ -32,7 +33,26 @@ while (have_posts()) {
             <?php
             the_content();
             ?>
-
+        
         </div>
+        <?php 
+            $relatedIngredients = get_field('related_ingredients');
+            // Need to wrap in an if statement so that only runs if there are related ingredients
+            if($relatedIngredients) {
+                echo '<hr class = "section-break">';
+                echo '<h2 class = "headline headline--small">Related Ingredient(s)</h2>';
+                echo '<ul class = "link-list min-list">';
+                foreach($relatedIngredients as $ingredient){ ?>
+                    <li><a href = "<?php echo get_the_permalink($ingredient); ?>"><?php echo get_the_title($ingredient); ?></a></li>
+                <?php }
+                echo '</ul>';
+            }
+           
+        ?>
+
+    </div>
 
     <?php }
+
+
+?>

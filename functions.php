@@ -13,8 +13,12 @@ function desserts_features(){
     register_nav_menu('headerMenuLocation', 'Header Menu Location');
     register_nav_menu('footerLocationOne', 'Footer Location One');
     register_nav_menu('footerLocationTwo', 'Footer Location Two');
-    
+
+    add_theme_support('post-thumbnails');
     add_theme_support('title-tag');
+    add_image_size('pastryChefLandscape', 400, 260, true);
+    add_image_size('pastryChefPortrait', 480, 650, true);
+    add_image_size('pageBanner', 1500, 350, true);
 }
 add_action('after_setup_theme', 'desserts_features');
 
@@ -24,12 +28,34 @@ function atg_menu_classes($classes, $item, $args) {
     if($args->theme_location == 'headerMenuLocation') {
       if(get_post_type()=='post' && $item->title=='Blog')
         $classes[] = 'current-menu-item';
-      if(get_post_type()=='country' && $item->title=='All Countries')
+      if(get_post_type()=='country' && $item->title=='Select Countries')
+      $classes[] = 'current-menu-item';
+      if(get_post_type()=='country' && $item->title=='Ingredients')
+      $classes[] = 'current-menu-item';
+      if(get_post_type()=='post' && $item->title=='All Pastry Chefs')
       $classes[] = 'current-menu-item';
       
     }
+   
+   
+    
     return $classes;
   }
  
 add_filter('nav_menu_css_class', 'atg_menu_classes', 1, 3);
 
+function desserts_adjust_queries($query){
+  if(!is_admin() AND is_post_type_archive('ingredient') AND $query-> is_main_query() ){
+    $query->set('orderby', 'title');
+    $query->set('order', 'ASC');
+    $query->set('posts_per_page', -1);
+
+  }
+  if(!is_admin() AND is_post_type_archive('country')AND $query->is_main_query()){
+    $query->set('posts_per_page', '3');
+ 
+  }
+}
+
+
+add_action('pre_get_posts', 'desserts_adjust_queries');
