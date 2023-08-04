@@ -4,11 +4,10 @@
     <div class="page-banner__bg-image"
         style="background-image: url(<?php echo get_theme_file_uri('/images/chocolate-hero.jpg') ?>);"></div>
     <div class="page-banner__content container t-center c-white">
-        <h1 class="headline headline--large">Welcome!</h1>
-        <h2 class="headline headline--medium">We think you&rsquo;ll like it here.</h2>
-        <h3 class="headline headline--small">Why don&rsquo;t you check out the <strong>Ingredient</strong> you&rsquo;re
-            interested in?</h3>
-        <a href="<?php echo get_post_type_archive_link('ingredient') ?>" class="btn btn--large btn--blue">Find Your Ingredient</a>
+        <h2 class="headline headline--medium">Embark on a Flavorful Journey</h2>
+        <h3 class="headline headline--small">Discover the Ingredients that Connect Sweet Traditions <strong>Worldwide</strong> 
+            </h3>
+        <a href="<?php echo get_post_type_archive_link('ingredient') ?>" class="btn btn--large btn--blue">Discover Sweet Links</a>
     </div>
 </div>
 
@@ -54,7 +53,7 @@
     </div>
     <div class="full-width-split__two">
         <div class="full-width-split__inner">
-            <h2 class="headline headline--small-plus t-center">From Our Blogs</h2>
+            <h2 class="headline headline--small-plus t-center">Featured Desserts</h2>
             <?php
       $homepagePosts = new WP_Query(
         array(

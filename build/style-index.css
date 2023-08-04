@@ -1340,6 +1340,7 @@ body.admin-bar .search-overlay {
 .event-summary__title a {
   color: #173f58;
 }
+
 .event-summary__date {
   text-decoration: none;
   display: block;
@@ -1355,12 +1356,14 @@ body.admin-bar .search-overlay {
   transition: opacity 0.33s;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.22);
 }
+
 .event-summary__date:hover {
   opacity: 0.75;
 }
 .event-summary__date--beige {
   background-color: #f4d35e;
 }
+
 .event-summary__month {
   display: block;
   font-size: 1.5rem;
