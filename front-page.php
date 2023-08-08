@@ -26,9 +26,17 @@
                     $homepageCountries -> the_post();?>
                     <div class="event-summary">
                     <a class="event-summary__date t-center" href="#">
+        
+                       <span class="event-summary__month">
+                        <span class = "emoji">
+                        🇪🇸 
+                        <!-- need to replace this with the correct flags this is a placeholder  -->
+                        </span>
                        
-                        <span class = "event-summary__day"></span>
-
+                        </span>
+                    <span class="event-summary__day">
+                      
+                    </span>
                         </a>
                     <div class="event-summary__content">
                         <h5 class="event-summary__title headline headline--tiny"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
@@ -64,36 +72,13 @@
 
       while ($homepagePosts->have_posts()) {
         $homepagePosts->
-          the_post(); ?>
-            <div class="event-summary">
-                <a class="event-summary__date event-summary__date--beige t-center" href="<?php the_permalink(); ?>">
-                    <span class="event-summary__month">
-                        <?php the_time('M'); ?>
-                    </span>
-                    <span class="event-summary__day">
-                        <?php the_time('d'); ?>
-                    </span>
-                </a>
-                <div class="event-summary__content">
-                    <h5 class="event-summary__title headline headline--tiny"><a
-                            href=<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    </h5>
-                    <p>
-                        <?php if(has_excerpt()){
-                            echo get_the_excerpt();
-                        }else{
-                            echo wp_trim_words(get_the_content(), 18); 
-                        }?>
-                        <a href="<?php the_permalink(); ?>"
-                            class="nu gray">Read
-                            more</a>
-                    </p>
-                </div>
-            </div>
-            <?php }wp_reset_postdata();
+          the_post(); 
+        get_template_part('/template-parts/content-recipe', get_post_type());
+            
+          }
       ?>
 
-        </div>
+       
 
 
         <p class="t-center no-margin"><a href="<?php
@@ -110,8 +95,8 @@
                 style="background-image: url(<?php echo get_theme_file_uri('images/cocada.jpg') ?>);">
                 <div class="hero-slider__interior container">
                     <div class="hero-slider__overlay">
-                        <h2 class="headline headline--medium t-center">Free Transportation</h2>
-                        <p class="t-center">All students have free unlimited bus fare.</p>
+                        <h2 class="headline headline--medium t-center">Captivating Visuals </h2>
+                        <p class="t-center">Stunning images of featured desserts &amp; ingredients</p>
                         <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
                     </div>
                 </div>
@@ -120,8 +105,8 @@
                 style="background-image: url(<?php echo get_theme_file_uri('images/mango-panna-cotta.jpg') ?>);">
                 <div class="hero-slider__interior container">
                     <div class="hero-slider__overlay">
-                        <h2 class="headline headline--medium t-center">An Apple a Day</h2>
-                        <p class="t-center">Our dentistry program recommends eating apples.</p>
+                        <h2 class="headline headline--medium t-center">Exploring Authentic Recipes</h2>
+                        <p class="t-center">Some of our desserts will have recipes so you create these treats at home.</p>
                         <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
                     </div>
                 </div>
@@ -130,8 +115,8 @@
                 style="background-image: url(<?php echo get_theme_file_uri('images/macaroon.jpg') ?>);">
                 <div class="hero-slider__interior container">
                     <div class="hero-slider__overlay">
-                        <h2 class="headline headline--medium t-center">Free Food</h2>
-                        <p class="t-center">Fictional University offers lunch plans for those in need.</p>
+                        <h2 class="headline headline--medium t-center">Celebrating Cultural Heritage</h2>
+                        <p class="t-center">Honoring the culinary heritage of each country, showcasing the unique flavors and tradition</p>
                         <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
                     </div>
                 </div>
